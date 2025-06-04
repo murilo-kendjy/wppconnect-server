@@ -1,14 +1,22 @@
+import {
+  DEVICE_NAME,
+  HOST,
+  MAX_LISTENERS,
+  PORT,
+  POWERED_BY,
+  SECRET_KEY,
+} from './contants';
 import { ServerOptions } from './types/ServerOptions';
 
 export default {
-  secretKey: 'THISISMYSECURETOKEN',
-  host: 'http://localhost',
-  port: '21465',
-  deviceName: 'WppConnect',
-  poweredBy: 'WPPConnect-Server',
+  secretKey: SECRET_KEY,
+  host: HOST,
+  port: PORT,
+  deviceName: DEVICE_NAME,
+  poweredBy: POWERED_BY,
   startAllSession: true,
   tokenStoreType: 'file',
-  maxListeners: 15,
+  maxListeners: MAX_LISTENERS,
   customUserDataDir: './userDataDir/',
   webhook: {
     url: null,
