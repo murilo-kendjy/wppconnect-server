@@ -35,12 +35,17 @@ import * as HealthCheck from '../middleware/healthCheck';
 import * as prometheusRegister from '../middleware/instrumentation';
 import statusConnection from '../middleware/statusConnection';
 import swaggerDocument from '../swagger.json';
+import { checkSession } from '../middleware/checkSession';
 
 const upload = multer(uploadConfig as any) as any;
 const routes: Router = Router();
 
 // Generate Token
-routes.post('/api/:session/:secretkey/generate-token', encryptSession);
+routes.post(
+  '/api/:session/:secretkey/generate-token',
+  checkSession,
+  encryptSession
+);
 
 // All Sessions
 routes.get(
